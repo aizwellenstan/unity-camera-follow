@@ -26,7 +26,29 @@ public class CameraFollow : MonoBehaviour
         float distance = Vector3.Distance(cameraFollowPosition, transform.position);
         float cameraMoveSpeed = 1f;
 
+        //---Testing Low FrameRate for Overshot problem--------
+        // Application.targetFrameRate = 5;
+        // float cameraMoveSpeed = 10f;
+        //---------end Testing----------------
+
         //transform.position = cameraFollowPosition;
-        transform.position = transform.position + cameraMoveDir * distance * cameraMoveSpeed * Time.deltaTime;
+        //transform.position = transform.position + cameraMoveDir * distance * cameraMoveSpeed * Time.deltaTime;
+
+        //--------fix Overshot--------------
+        if (distance > 0)
+        {
+            Vector3 newCameraPosition = transform.position + cameraMoveDir * distance * cameraMoveSpeed * Time.deltaTime;
+
+            float distanceAfterMoving = Vector3.Distance(newCameraPosition, cameraFollowPosition);
+
+            if(distanceAfterMoving > distance)
+            {
+                // Overshot the target
+                newCameraPosition = cameraFollowPosition;
+            }
+
+            transform.position = newCameraPosition;
+        }
+
     }
 }
