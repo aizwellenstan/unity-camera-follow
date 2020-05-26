@@ -18,9 +18,9 @@ public class GameHandler : MonoBehaviour
         
         // cameraFollow.Setup(() => new Vector3(0, -100));
 
-        // cameraFollow.Setup(() => playerTransform.position);
+        cameraFollow.Setup(() => playerTransform.position);
 
-        cameraFollow.SetGetFollowPositionFunc(() => playerTransform.position);
+        cameraFollow.SetGetCameraFollowPositionFunc(() => playerTransform.position);
         //---------add Switch Target-------------
         // cameraFollow.SetGetFollowPositionFunc(() => character1Transform.position);
         //-------end add Switch Target----------
