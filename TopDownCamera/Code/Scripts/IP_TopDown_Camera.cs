@@ -41,10 +41,12 @@ public class IP_TopDown_Camera : MonoBehehaviour
 			return;
 		}
 
-		Vector3 worldPosition = (Vector3.forward * -m_Distance) + (Vector3.up * m_Height);
+		Vector3 worldPosition = 
+			(Vector3.forward * -m_Distance) + (Vector3.up * m_Height);
 		Debug.DrawLine(m_Target.position, wordPosition, Color.red);
 
-		Vector3 rotatedVector = Quaternion.AngleAxis(m_Angle, Vector3.up) * worldPositoni;
+		Vector3 rotatedVector = 
+			Quaternion.AngleAxis(m_Angle, Vector3.up) * worldPositon;
 		Debug.DrawLine(m_Target.position, rotatedVector, Color.green);
 
 		Vector3 flatTargetPosition = m_Target.position;
