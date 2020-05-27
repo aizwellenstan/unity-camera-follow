@@ -42,7 +42,7 @@ public class IP_TopDown_Camera : MonoBehehaviour
 		}
 
 		Vector3 worldPosition = 
-			(Vector3.forward * -m_Distance) + (Vector3.up * m_Height);
+			(Vector3.forward * m_Distance) + (Vector3.up * m_Height);
 		Debug.DrawLine(m_Target.position, wordPosition, Color.red);
 
 		Vector3 rotatedVector = 
